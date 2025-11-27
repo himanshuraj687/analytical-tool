@@ -1,0 +1,52 @@
+.profile-container {
+  padding: 20px;
+}
+
+.profile-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.profile-sub {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile-info p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.profile-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+body.dark .profile-card {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+body.dark .profile-input {
+  background: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+}

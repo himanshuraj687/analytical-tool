@@ -1,0 +1,43 @@
+/* MAIN WRAPPER */
+.layout-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* SIDEBAR FIXED */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+  z-index: 1000;
+}
+
+/* MAIN CONTENT (SHIFT RIGHT) */
+.main-section {
+  margin-left: 230px;     /* ← THIS IS WHAT YOUR PAGE IS MISSING */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+/* AREA FOR ALL CONTENT */
+.page-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+  .main-section {
+    margin-left: 0;
+  }
+}
