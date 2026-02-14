@@ -1,5 +1,1 @@
-.report-table tr:hover,
-.data-table tr:hover {
-  background: #f3f4f6;
-  cursor: pointer;
-}
+/* DataTable styles handled by Tailwind CSS */

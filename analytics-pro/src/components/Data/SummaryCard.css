@@ -1,13 +1,1 @@
-.summary-card {
-  background: white;
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.05);
-  text-align: center;
-  animation: pop 0.4s ease-in-out;
-}
-
-@keyframes pop {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
+/* SummaryCard styles handled by Tailwind CSS */

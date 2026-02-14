@@ -1,19 +1,27 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 
 // Pages
 import Login from "./components/Auth/Login.jsx";
+import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/DashBoard.jsx";
 import Tools from "./pages/Tools.jsx";
 import Settings from "./pages/Settings.jsx";
 import Upload from "./pages/Upload.jsx";
 import Reports from "./pages/Reports.jsx";
 import Landing from "./pages/Landing.jsx";
+import Profile from "./pages/Profile.jsx";
+import DashboardLayout from "./layout/DashboardLayout.jsx";
 
-// Route protection
-const Protected = ({ children }) => {
+// Route protection + shared layout (Sidebar stays mounted across pages)
+const ProtectedLayout = () => {
   const logged = localStorage.getItem("auth");
-  return logged === "loggedin" ? children : <Navigate to="/login" />;
+  if (logged !== "loggedin") return <Navigate to="/login" />;
+  return (
+    <DashboardLayout>
+      <Outlet />
+    </DashboardLayout>
+  );
 };
 
 export default function App() {
@@ -24,13 +32,17 @@ export default function App() {
         {/* Public */}
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-        {/* Protected */}
-        <Route path="/dashboard" element={<Protected><Dashboard /></Protected>} />
-        <Route path="/upload" element={<Protected><Upload /></Protected>} />
-        <Route path="/tools" element={<Protected><Tools /></Protected>} />
-        <Route path="/reports" element={<Protected><Reports /></Protected>} />
-        <Route path="/settings" element={<Protected><Settings /></Protected>} />
+        {/* Protected — shared layout keeps Sidebar mounted */}
+        <Route element={<ProtectedLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/tools" element={<Tools />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
 
       </Routes>
     </BrowserRouter>
