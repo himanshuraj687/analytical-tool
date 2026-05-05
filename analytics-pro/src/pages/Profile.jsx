@@ -45,7 +45,7 @@ export default function Profile() {
     if (!fullName.trim() && !email.trim()) { setErr("Enter at least one field"); return; }
     setSaving(true);
     try {
-      const res = await axios.put(`http://localhost:5000/profile/${stored.username}`, { fullName: fullName.trim(), email: email.trim() });
+      const res = await axios.put(`https://analytical-tool-zxge.onrender.com/profile/${stored.username}`, { fullName: fullName.trim(), email: email.trim() });
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setMsg(res.data.message);
     } catch (e) {
