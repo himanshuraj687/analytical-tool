@@ -40,7 +40,7 @@ export default function Login() {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/login", { username, password });
+      const res = await axios.post("https://analytical-tool-zxge.onrender.com/login", { username, password });
       localStorage.setItem("auth", "loggedin");
       localStorage.setItem("user", JSON.stringify(res.data.user));
       window.location.href = "/dashboard";
