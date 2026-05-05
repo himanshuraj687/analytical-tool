@@ -82,7 +82,7 @@ export default function Register() {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/register", {
+      const res = await axios.post("https://analytical-tool-zxge.onrender.com/register", {
         fullName: fullName.trim(),
         email: email.trim(),
         username: username.trim(),
